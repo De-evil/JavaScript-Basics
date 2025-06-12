@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Finder</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+     <div class="container">
+        <h2>Guess the Number (1 - 10)</h2>
+        <input id="checkNumber" type="number" placeholder="Enter your guess">
+        <button onclick="GuessMeIfYouCan()">Guess</button>
+        <p id="result">You are Right/Wrong</p>
+        <p id="points">Score: 10</p>
+    </div>
+
+    <script>
+        var checkNumber = document.getElementById("checkNumber");
+        var result = document.getElementById("result");
+        var randomNumber = Math.floor(Math.random() * 10 + 1);
+        var points = document.getElementById("points");
+        var score = 10
+
+        function GuessMeIfYouCan() {
+            var GetInput = checkNumber.value
+            if(randomNumber == GetInput){
+                result.textContent='Right'
+                alert("You Won...!")
+            } else {
+                score = score - 1
+                points.textContent="points:" + score
+                result.textContent="Wrong"
+            }
+        }
+    </script>
+</body>
+
+</html>
